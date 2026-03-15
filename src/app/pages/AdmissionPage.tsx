@@ -105,7 +105,7 @@ export function AdmissionPage() {
               {pageData.fees.map((fee, index) => (
                 <div key={index} className="bg-white border border-gray-200 rounded-xl p-8 text-center">
                   <h3 className="text-xl mb-4 text-gray-900">{fee.label}</h3>
-                  <p className="text-4xl font-bold text-primary mb-2">{fee.value}</p>
+                  <p className="text-4xl font-bold mb-2">{fee.value}</p>
                 </div>
               ))}
             </div>
@@ -166,13 +166,13 @@ export function AdmissionPage() {
       {/* Call to Action */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-primary text-white rounded-xl p-12">
+          <div className="bg-card-foreground text-white rounded-xl p-12">
             <Calendar className="w-16 h-16 mx-auto mb-4" />
-            <h2 className="text-3xl mb-4">ভর্তি চলছে</h2>
-            <p className="text-xl mb-6 text-blue-100">
+            <h2 className="text-3xl mb-4 text-white">ভর্তি চলছে</h2>
+            <p className="text-xl mb-6 text-white">
               সারা বছরই ভর্তি চলমান থাকে
             </p>
-            <p className="text-lg mb-8">
+            <p className="text-lg mb-8 text-white">
               যে কোনো সময় এসে ভর্তি হতে পারবেন। আমরা সবসময় প্রস্তুত আপনাকে
               সাহায্য করতে।
             </p>

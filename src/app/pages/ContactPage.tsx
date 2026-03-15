@@ -97,35 +97,35 @@ export function ContactPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
-              <div className="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Phone className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Phone className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-lg mb-3 text-gray-900">ফোন নম্বর</h3>
-              <p className="text-xl mb-1 text-primary">{settings.phone}</p>
+              <p className="text-xl mb-1">{settings.phone}</p>
               <p className="text-gray-600 text-sm">সকাল ১০টা - রাত ১০টা</p>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
-              <div className="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Phone className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Phone className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-lg mb-3 text-gray-900">হোয়াটসঅ্যাপ</h3>
-              <p className="text-xl mb-1 text-primary">{settings.phone}</p>
+              <p className="text-xl mb-1">{settings.phone}</p>
               <p className="text-gray-600 text-sm">২৪/৭ মেসেজ করুন</p>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
-              <div className="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-lg mb-3 text-gray-900">ইমেইল</h3>
-              <p className="text-lg mb-1 text-primary">{settings.email}</p>
+              <p className="text-lg mb-1">{settings.email}</p>
               <p className="text-gray-600 text-sm">২৪ ঘণ্টার মধ্যে উত্তর</p>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
-              <div className="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-lg mb-3 text-gray-900">ঠিকানা</h3>
               <p className="text-sm text-gray-700">{settings.address}</p>

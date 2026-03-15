@@ -84,7 +84,7 @@ export function AcademicPage() {
                   </div>
                 </div>
                 <h3 className="text-xl mb-2 text-gray-900">{item.label}</h3>
-                <p className="text-2xl text-primary mb-2">{item.value}</p>
+                <p className="text-2xl mb-2">{item.value}</p>
               </div>
             ))}
           </div>
@@ -100,7 +100,7 @@ export function AcademicPage() {
                     className="bg-white p-4 rounded-lg border border-gray-200"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                      <span className="font-semibold text-lg text-primary">
+                      <span className="font-semibold text-lg">
                         {item.grade}
                       </span>
                       <span className="text-gray-700">{item.subjects}</span>
