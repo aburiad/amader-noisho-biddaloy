@@ -1,0 +1,10 @@
+{
+  "name": "wrk-hsa-admin",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@wordpress/api-fetch": "^7.34.0"
+  }
+}

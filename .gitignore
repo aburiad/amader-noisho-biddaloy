@@ -1,0 +1,12 @@
+# Node modules ignore
+node_modules/
+
+# Environment file ignore
+.env
+
+# Build folder ignore
+dist/
+build/
+
+# অন্য কোনো custom file ignore করতে চাইলে নাম লিখো
+secret.txt
