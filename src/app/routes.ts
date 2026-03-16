@@ -1,12 +1,14 @@
 import { createBrowserRouter } from "react-router";
-import { HomePage } from "./pages/HomePage";
+import { Layout } from "./components/Layout";
 import { AboutPage } from "./pages/AboutPage";
 import { AcademicPage } from "./pages/AcademicPage";
 import { AdmissionPage } from "./pages/AdmissionPage";
-import { NoticesPage } from "./pages/NoticesPage";
-import { GalleryPage } from "./pages/GalleryPage";
+import BlogDetailsPage from "./pages/BlogDetailsPage";
+import BlogPage from "./pages/BlogPage";
 import { ContactPage } from "./pages/ContactPage";
-import { Layout } from "./components/Layout";
+import { GalleryPage } from "./pages/GalleryPage";
+import { HomePage } from "./pages/HomePage";
+import { NoticesPage } from "./pages/NoticesPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,9 @@ export const router = createBrowserRouter([
       { path: "notices", Component: NoticesPage },
       { path: "gallery", Component: GalleryPage },
       { path: "contact", Component: ContactPage },
+      { path: "blog", Component: BlogPage },
+      { path: "blog/:slug", Component: BlogDetailsPage },
+      
     ],
   },
 ]);

@@ -159,6 +159,40 @@ export interface ContactPageData {
   }>;
 }
 
+export interface BlogPost {
+  id: number;
+  slug: string;
+  title: string;
+  content: string;
+  excerpt: string;
+  date: string;
+  author: number;
+  featured_image: string | null;
+}
+
+export interface BlogPageData {
+  page_title: string;
+  page_subtitle: string;
+  posts: BlogPost[];
+  total_posts: number;
+  current_page: number;
+  total_pages: number;
+}
+
+export interface BlogPostDetailData {
+  page_title: string;
+  page_subtitle: string;
+  post_title: string;
+  post_content: string;
+  read_more_text: string;
+  slug: string;
+  featured_image: string | null;
+  post_meta: Array<{
+    label: string;
+    value: string;
+  }>;
+}
+
 export async function fetchSettings(): Promise<SettingsData> {
   const response = await fetch(`${BASE_URL}/settings`);
   if (!response.ok) {
@@ -238,4 +272,67 @@ export async function fetchContactPage(): Promise<ContactPageData> {
   }
   const result: ApiResponse<ContactPageData> = await response.json();
   return result.data;
+}
+
+export async function fetchBlogPage(page: number = 1, perPage: number = 10): Promise<BlogPageData> {
+  // Direct Public API (No custom base needed)
+  const response = await fetch(`https://ahsan.ronybormon.com/wp-json/wp/v2/posts?page=${page}&per_page=${perPage}&_embed`);
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch posts');
+  }
+
+  const posts = await response.json();
+  const totalPosts = parseInt(response.headers.get('X-WP-Total') || '0', 10);
+  const totalPages = parseInt(response.headers.get('X-WP-TotalPages') || '1', 10);
+
+  if (!posts || posts.length === 0) {
+    throw new Error('No posts available');
+  }
+
+  return {
+    page_title: "School News",
+    page_subtitle: "Updates from our official blog",
+    posts: posts.map((post: any) => ({
+      id: post.id,
+      slug: post.slug,
+      title: post.title.rendered,
+      content: post.content.rendered,
+      excerpt: post.excerpt.rendered,
+      date: post.date,
+      author: post.author,
+      featured_image: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || null
+    })),
+    total_posts: totalPosts,
+    current_page: page,
+    total_pages: totalPages
+  };
+}
+
+// Specific single post fetch korar jonno
+export async function fetchPostBySlug(slug: string): Promise<BlogPostDetailData> {
+  const response = await fetch(`https://ahsan.ronybormon.com/wp-json/wp/v2/posts?slug=${slug}&_embed`);
+  
+  if (!response.ok) {
+    throw new Error('Post not found');
+  }
+
+  const posts = await response.json();
+  const post = posts[0];
+
+  if (!post) throw new Error('Post not found');
+
+  return {
+    page_title: post.title.rendered, // Post er title-i page title
+    page_subtitle: "Published on " + new Date(post.date).toLocaleDateString(),
+    post_title: post.title.rendered,
+    post_content: post.content.rendered, // Full content
+    slug: post.slug,
+    featured_image: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || null,
+    read_more_text: "Back to Blog",
+    post_meta: [
+      { label: "Author ID", value: post.author.toString() },
+      { label: "Status", value: post.status }
+    ]
+  };
 }
